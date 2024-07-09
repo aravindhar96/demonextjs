@@ -29,13 +29,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      <div className="flex-1 bg-cover bg-center" style={{ backgroundImage: "url('/images.jpg')" }}>
-        {/* Background image */}
+    <div className="min-h-screen flex flex-col md:flex-row">
+      <div className="flex-1 bg-cover bg-center hidden md:block" style={{ backgroundImage: "url('/images.jpg')" }}>
+        {/* Background image for desktop */}
       </div>
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center p-6 md:p-0">
         <div className="max-w-md w-full bg-white p-8 border border-gray-300 rounded-md shadow-md">
-          <h2 className="text-2xl font-bold mb-6 text-center">Legalz</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            <span className="bg-red-500 w-6 h-6 rounded-full inline-block"></span> &nbsp;&nbsp;Legalz
+          </h2>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
               <input
@@ -66,11 +68,14 @@ export default function Login() {
           </form>
           <p className="mt-4 text-center">
             Don't have an account?{' '}
-            <Link href="/register" className="text-blue-500">
-              Sign up
+            <Link href="/register">
+              <span className="text-blue-500">Sign up</span>
             </Link>
           </p>
         </div>
+      </div>
+      <div className="bg-cover bg-center md:hidden" style={{ backgroundImage: "url('/images.jpg')" }}>
+        {/* Background image for mobile */}
       </div>
     </div>
   );

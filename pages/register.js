@@ -44,16 +44,18 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      <div className="flex-1 bg-cover bg-center" style={{ backgroundImage: "url('/images.jpg')" }}>
-        {/* Background image */}
+    <div className="min-h-screen flex flex-col md:flex-row">
+      <div className="flex-1 bg-cover bg-center hidden md:block" style={{ backgroundImage: "url('/images.jpg')" }}>
+        {/* Background image for desktop */}
       </div>
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center p-6 md:p-0">
         <div className="max-w-md w-full bg-white p-8 border border-gray-300 rounded-md shadow-md">
-          <h2 className="text-2xl font-bold mb-6 text-center">Legalz Registration</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            <span className="bg-red-500 w-6 h-6 rounded-full inline-block"></span> &nbsp;&nbsp;Legalz Registration
+          </h2>
           <form onSubmit={handleRegister}>
-            <div className="flex mb-4 space-x-2">
-              <div className="w-1/2">
+            <div className="flex flex-col md:flex-row mb-4 space-y-4 md:space-y-0 md:space-x-2">
+              <div className="w-full md:w-1/2">
                 <input
                   type="text"
                   className="w-full p-2 border border-gray-300 rounded mt-1"
@@ -63,7 +65,7 @@ export default function Register() {
                   required
                 />
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <input
                   type="text"
                   className="w-full p-2 border border-gray-300 rounded mt-1"
@@ -128,11 +130,14 @@ export default function Register() {
           )}
           <p className="mt-4 text-center">
             Already have an account?{' '}
-            <Link href="/login" className="text-blue-500">
-              Sign in
+            <Link href="/login">
+              <span className="text-blue-500">Sign in</span>
             </Link>
           </p>
         </div>
+      </div>
+      <div className="bg-cover bg-center md:hidden" style={{ backgroundImage: "url('/images.jpg')" }}>
+        {/* Background image for mobile */}
       </div>
     </div>
   );
